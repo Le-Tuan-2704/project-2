@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SectionCourses extends Model
+class PointQuiz extends Model
 {
     use HasFactory;
     protected $fillable = [
-        "id_courses", "title"
+        "id_student", "id_quiz", "point"
     ];
 }

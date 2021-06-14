@@ -138,10 +138,13 @@ class UserController extends Controller
     public function upload_avatar(Request $req)
     {
         $user = User::where('id', $req->user_id)->first();
-        $req->validate([
-            'img' => 'mimes:jpeg,jpg,png|required|max:2000'
-        ]);
+        $file = $req->img->extension();
 
+        if ($file != "jpg" && $file != "jpeg" && $file != "png") {
+            return response()->json([
+                "msg" => "định dạng file ko đúng"
+            ]);
+        }
 
         $fileName = $user->username . '.' . $req->img->extension();
 

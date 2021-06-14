@@ -18,7 +18,7 @@ class UserStudent
     public function handle(Request $request, Closure $next)
     {
         $checkStudent = User::where("id", $request->user_id)->first();
-        if ($checkStudent->role != 1) {
+        if ($checkStudent->role != 0) {
             return response()->json([
                 "msg" => "bạn không có quyền truy cập(s)"
             ]);
